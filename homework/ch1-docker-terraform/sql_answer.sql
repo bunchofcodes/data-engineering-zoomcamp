@@ -55,4 +55,28 @@ ORDER BY 3 DESC;
 ```
 Question 6. Largest tip
 For the passengers picked up in the zone named "East Harlem North" in November 2025, which was the drop off zone that had the largest tip?
+
+Answer: Yorkville West
 ```
+
+SELECT
+a.pu_id,
+a.pu_zone,
+a.do_id,
+b."Zone",
+a.tip_amount
+FROM (
+	SELECT a."PULocationID" AS pu_id,
+	b."Zone" pu_zone,
+	a."DOLocationID" AS do_id,
+	a.tip_amount
+	FROM public.green_taxi_data_2025_11 a
+	LEFT JOIN public.zone b 
+	ON a."PULocationID" = b."LocationID"
+	WHERE DATE(a.lpep_pickup_datetime) >= '2025-11-01' 
+	AND DATE(a.lpep_pickup_datetime) <= '2025-11-30'
+	AND b."Zone" = 'East Harlem North'
+	) a
+LEFT JOIN public.zone b
+ON a."do_id" = b."LocationID"
+ORDER BY 5 DESC;
