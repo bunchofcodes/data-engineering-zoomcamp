@@ -1,0 +1,11 @@
+[project]
+name = "ch6-batch-spark"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "jupyter>=1.1.1",
+    "lab>=8.9",
+    "pyspark>=4.1.1",
+]
