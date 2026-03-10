@@ -1,2 +1,5 @@
 *.csv
 *.parquet
+*.csv.gz
+*.parquet.crc
+*crc
