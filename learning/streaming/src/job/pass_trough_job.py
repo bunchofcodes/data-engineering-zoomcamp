@@ -70,4 +70,4 @@ def log_processing():
     ).wait()
 
 if __name__ == '__main__':
-    log_processing()
+    log_processing()nch
